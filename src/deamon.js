@@ -22,7 +22,6 @@ module.exports = (bp) => {
     .then(list => {
       return Promise.map(list, expired => {
         let fromDate = null
-        console.log(expired)
         return reschedule(expired)
         .then(() => {
           db(bp).updateTask(expired.taskId, 'executing', null, null)
