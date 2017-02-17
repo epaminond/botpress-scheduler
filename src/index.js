@@ -6,14 +6,16 @@ import db from './db'
 import deamon from './deamon'
 
 module.exports = {
-  init: function(bp) {
-    db(bp).bootstrap()
-    .then(() => {
-      const d = deamon(bp)
-      return d.revive()
-      .then(() => d.start())
-    })
+
+  config: { },
+
+  init: async function(bp) {
+    await db(bp).bootstrap()
+    const d = deamon(bp)
+    await d.revive()
+    d.start()
   },
+
   ready: function(bp) {
     const router = bp.getRouter('botpress-scheduler')
 

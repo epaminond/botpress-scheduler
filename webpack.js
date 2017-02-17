@@ -20,7 +20,11 @@ var nodeConfig = {
       test: /\.js$/,
       loader: 'babel-loader',
       exclude: /node_modules/,
-      babelrc: true
+      babelrc: true,
+      query: {
+        presets: ['latest', 'stage-0'],
+        plugins: ['transform-object-rest-spread', 'transform-async-to-generator']
+      }
     }, {
       test: /\.json$/,
       loader: 'json-loader'
