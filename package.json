@@ -8,6 +8,16 @@
     "menuIcon": "alarm_on",
     "webBundle": "bin/web.bundle.js"
   },
+  "keywords": [
+    "messenger",
+    "scheduler"
+  ],
+  "version-manager": {
+    "warn": "Can't migrate existing database, please see https://gist.github.com/slvnperron/9a3027f4d798c7d6b6b6a9b9b6bdfa7b",
+    "botpress-check": ">= 0.1 < 1",
+    "botpress-update": "^0.x",
+    "module-downgrade": "~1.0.x"
+  },
   "scripts": {
     "test": "mocha --compilers js:babel-core/register",
     "watch": "node webpack.js --watch",
@@ -63,6 +73,7 @@
   },
   "dependencies": {
     "bluebird": "^3.4.6",
+    "botpress-version-manager": "^1.0.2",
     "cronstrue": "^0.8.0",
     "later": "^1.2.0",
     "lodash": "^4.17.2",

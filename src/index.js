@@ -1,3 +1,5 @@
+import checkVersion from 'botpress-version-manager'
+
 import moment from 'moment'
 import _ from 'lodash'
 import Promise from 'bluebird'
@@ -10,6 +12,8 @@ module.exports = {
   config: { },
 
   init: async function(bp) {
+    checkVersion(bp, __dirname)
+    
     await db(bp).bootstrap()
     const d = deamon(bp)
     await d.revive()
